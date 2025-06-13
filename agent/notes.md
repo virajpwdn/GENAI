@@ -6,3 +6,6 @@
 - ChatML -> openAI (simlilar to javascript object)
 - Zero short prompting / one line prompting
 - Chain of Thought (CoT)
+- Personna Based Prompting
+
+Read Prompts online to get an idea how others write prompt creatively
