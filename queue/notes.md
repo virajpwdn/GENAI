@@ -1,0 +1,3 @@
+- valkey -> similar to redis it is open source
+- fastapi -> to make server
+- RQ -> Queue system
