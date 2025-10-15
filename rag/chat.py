@@ -1,3 +1,4 @@
+# flake8: noqa
 from langchain_qdrant import QdrantVectorStore
 from langchain_openai import OpenAIEmbeddings
 from dotenv import load_dotenv
@@ -14,12 +15,12 @@ embedding_model = OpenAIEmbeddings(
 
 # Making connection with existing vector DB
 vector_db = QdrantVectorStore.from_existing_collection(
-    url="http://localhost:6333",
+    url="http://vector-db:6333",
     collection_name="learning_vectors",
     embedding=embedding_model
 )
 
-#Take User Query
+# Take User Query
 query = input("> ")
 
 # Vector Similarity search [query] in DB
@@ -29,9 +30,10 @@ search_results = vector_db.similarity_search(
 
 # Make a system prompt and pass context init
 # context = "\n\n\n".join([f"Page Content: {result.page_content}\nPage Number: {result.metadata['page_label']}\nFile Location: {result.metadata['source']}" for result in search_results])
-context = "\n\n\n".join([f"page content: {result.page_content}\n Page Number: {result.metadata['page_label']}\n File Location: {result.metadata['source']}" for result in search_results])
+context = "\n\n\n".join(
+    [f"page content: {result.page_content}\n Page Number: {result.metadata['page_label']}\n File Location: {result.metadata['source']}" for result in search_results])
 
-SYSTEM_PROMPT= f"""
+SYSTEM_PROMPT = f"""
     You are a helpful AI assistant, who guides users to the correct page number from the pdf and you give him relevant information from that page. Following is the context of the pdf.
     
     {context}

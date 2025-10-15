@@ -1,4 +1,4 @@
-service:
+services:
   valkey:
     image: valkey/valkey
     ports:
