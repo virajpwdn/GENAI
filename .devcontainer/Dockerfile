@@ -1,10 +1,12 @@
-FROM mcr.microsoft.com/devcontainers/python:3.12
+FROM mcr.microsoft.com/devcontainers/python:3.12 # Use Python 3.12 base image
 
 ENV PYTHONUNBUFFERED=1
 
-RUN sudo apt-get update && \
+# update the existing packages and install curl
+RUN sudo apt-get update && \  
     sudo apt-get install -y curl
 
+# upgrade pip to the latest version
 RUN pip install --upgrade pip
 
 # Install Poetry
