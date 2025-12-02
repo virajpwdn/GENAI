@@ -9,11 +9,18 @@ services:
 
     command: sleep infinity
   
-  valkey:
-    image: valkey/valkey
+  # valkey:
+  #   image: valkey/valkey
 
-  vector-db:
-    image: qdrant/qdrant
-    ports:
-      - 6333:6333
+  # vector-db:
+  #   image: qdrant/qdrant
+  #   ports:
+  #     - 6333:6333
   
+  mongo-db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example

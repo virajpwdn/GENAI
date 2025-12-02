@@ -19,7 +19,8 @@
         "aaron-bond.better-comments",
         "ms-azuretools.vscode-docker",
         "ms-python.flake8",
-        "ms-python.isort"
+        "ms-python.isort",
+        "albert.TabOut"
       ]
     },
     "settings": {
