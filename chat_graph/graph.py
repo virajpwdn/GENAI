@@ -6,6 +6,7 @@ from langgraph.graph import StateGraph, START,END
 from langgraph.checkpoint.mongodb import MongoDBSaver
 from langgraph.graph.message import add_messages
 from dotenv import load_dotenv
+import os
 load_dotenv()
 
 class State(TypedDict): 
@@ -29,6 +30,8 @@ def compile_graph_with_checkpointer(checkpoint):
     return graph_with_checkpoint
 
 def main():
+    env_var = os.environ.get("LANGSMITH_API_KEY")
+    print("ENV_VAR ", env_var)
     DB_URI = "mongodb://root:example@mongo-db:27017"
     config = {"configurable": {"thread_id": "1"}}
 
